@@ -1,0 +1,53 @@
+### Add these ABOVE the "# BEGIN WordPress" block in your site's .htaccess ###
+### (Do not touch the WordPress-managed block itself)
+
+# Disable directory listing
+Options -Indexes
+
+# Force HTTPS and non-www (single-hop redirect — avoid chaining multiple rules)
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301,NC]
+
+# Do not rewrite real files or directories (including favicons and icons).
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Explicitly allow direct serving of icon files (prevents any plugin/theme rule
+# from intercepting them).
+<IfModule mod_rewrite.c>
+  RewriteRule ^favicon\.ico$ - [L]
+  RewriteRule ^apple-touch-icon\.png$ - [L]
+</IfModule>
+
+# Block access to sensitive files.
+<IfModule mod_rewrite.c>
+  RewriteRule ^\.env - [F]
+  RewriteRule ^wp-config\.php$ - [F]
+  RewriteRule ^wp-content/mu-plugins/vsa-env-loader\.php$ - [F]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=()"
+</IfModule>
+
+# Browser caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+### NOTE: cPanel/LiteSpeed servers often use .htaccess for LiteSpeed Cache (LSCache)
+### rules automatically once the LiteSpeed Cache plugin is installed — do not
+### hand-edit those auto-generated blocks.

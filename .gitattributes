@@ -1,0 +1,26 @@
+# Enforce LF line endings for files that will run on Linux/cPanel.
+* text=auto
+*.sh text eol=lf
+*.php text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+
+# Binary files — do not modify line endings.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.svg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+*.zip binary

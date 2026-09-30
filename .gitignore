@@ -1,0 +1,87 @@
+# =============================================================================
+# Secrets and environment configuration
+# =============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# =============================================================================
+# WordPress core, config, and user content (do not track these in this repo)
+# =============================================================================
+/wp-config.php
+/wp-admin/
+/wp-includes/
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/cache/
+/wp-content/plugins/
+/wp-content/themes/*/node_modules/
+/wp-content/themes/*/vendor/
+/wp-content/debug.log
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+logs/
+
+# =============================================================================
+# Dependency directories (build-time tools only)
+# =============================================================================
+node_modules/
+vendor/
+composer.lock
+yarn.lock
+
+# =============================================================================
+# Build-time package files for the favicon generator.
+# The generated icon files are tracked; the generator tooling is not needed
+# on the server.
+# =============================================================================
+theme/assets/images/package.json
+theme/assets/images/package-lock.json
+theme/assets/images/generate-favicon.js
+
+# =============================================================================
+# Build artifacts and caches
+# =============================================================================
+*.min.js.map
+*.min.css.map
+.cache/
+dist/
+build/
+.sass-cache/
+
+# =============================================================================
+# Database dumps and backups
+# =============================================================================
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.bak
+*.zip
+*.tar.gz
+
+# =============================================================================
+# Editor and OS files
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =============================================================================
+# Deployment working copies (cPanel deploys from repo to live site)
+# =============================================================================
+# Nothing here — the repository checkout itself is managed by cPanel Git Version
+# Control and lives outside public_html by default.

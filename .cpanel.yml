@@ -1,0 +1,16 @@
+---
+# VisitSaudiArab — cPanel Git Version Control deployment manifest.
+#
+# How this works:
+#   1. cPanel Git Version Control clones/pulls this repository to a directory
+#      OUTSIDE public_html (e.g. /home/yourcpaneluser/repositories/VisitSaudiArab).
+#   2. After each pull, cPanel runs the commands listed below.
+#   3. The deploy script copies theme and plugin files into the live WordPress
+#      document root (/home/yourcpaneluser/public_html by default).
+#
+# IMPORTANT: edit deploy/cpanel-deploy.sh and set DEST_DIR to your actual
+# cPanel document root before the first deployment.
+
+deployment:
+  tasks:
+    - /bin/bash deploy/cpanel-deploy.sh

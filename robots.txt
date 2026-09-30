@@ -1,0 +1,12 @@
+# Update the Sitemap URL below to match your production domain before deploying.
+# If you install an SEO plugin, it may manage robots.txt automatically; in that
+# case you can remove this file from public_html and let the plugin handle it.
+
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /search/
+Disallow: /*?s=
+Disallow: /*?preview=
+
+Sitemap: https://visitsaudiarab.com/sitemap_index.xml
