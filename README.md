@@ -13,8 +13,9 @@ mu-plugins/vsa-env-loader.php        → loads database credentials and salts fr
                                          a file outside public_html
 theme/                                → custom WordPress theme
   style.css                          → theme header + all CSS
-  functions.php                      → setup, hreflang, breadcrumbs, perf
+  functions.php                      → setup, hreflang, breadcrumbs, perf, favicon
   header.php / footer.php
+  assets/images/                     → favicon, apple-touch-icon, logo source
   front-page.php                     → homepage (hero, trending, plan-trip)
   single-destination.php             → destination hub template
   single-attraction.php              → attraction page w/ schema-ready fields
